@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>addEventListener</title>
+  </head>
+  <body>
+    <h1>addEventListener</h1>
+
+    <!-- In addition, the addEventListener() method also allows you to attach multiple listeners to the same element as follows: -->
+    <button id="myBtn">Click Me!</button>
+    <button id="myButn">Click me2</button>
+
+    <script>
+      const myBtn = document.querySelector("#myBtn");
+      const myButn = document.querySelector("#myButn");
+
+      myBtn.addEventListener("click", handleClick);
+      myBtn.addEventListener("dblclick", handleClickTwo);
+      myButn.removeEventListener("click", newText);
+
+      function handleClick() {
+        console.log("Run from handleClick function");
+      }
+
+      function handleClickTwo() {
+        console.log("Run from handleClickTwo");
+      }
+
+      function newText() {
+        console.log("Removed the click event function");
+      }
+    </script>
+  </body>
+</html>
