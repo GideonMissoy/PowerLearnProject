@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do App</title>
+  </head>
+  <body>
+    <h3>Tasks:</h3>
+    <a href="{% url 'task-create' %}">Create new Task:</a>
+    {% if object_list %}
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>View</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      {% for task in object_list %}
+      <tr>
+        <td>{{ task.title }}</td>
+        <td><a href="{% url 'task' task.pk %}">View</a></td>
+        <td><a href="{% url 'task-update' task.pk %}">Update</a></td>
+        <td><a href="{% url 'task-delete' task.pk %}">Delete</a></td>
+        {% endfor %}
+      </tr>
+      {% endif %}
+    </table>
+  </body>
+</html>
